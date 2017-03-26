@@ -1,0 +1,22 @@
+---
+- name: simple task
+  hosts: all 
+  connection: local
+  gather_facts: no
+  roles:
+    - Juniper.junos
+  post_tasks:
+    - name: "install config"
+      install_config:
+        source_dir: "./configs"
+        database: "150.10.0.2"
+        bucket_name:  "default"
+  tasks:
+    - junos_get_config:
+        host: "{{ inventory_hostname }}"
+        logfile: get_config.log
+        dest: "./configs/{{ inventory_hostname }}.xml"
+        user: root
+        passwd: Juniper
+        format: xml
+

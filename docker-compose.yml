@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  ansible:
+    container_name: ansible-couchbase
+    volumes:
+      - "./ansible:/ansible"
+    build:
+      context:  .
+      dockerfile: ansible.dockerfile
+    networks:
+      - default_network
+      
+  couchbase:
+    container_name: couchbase
+    image:  couchbase:community
+    ports:
+      - "8091-8094:8091-8094"
+      - "11210:11210"
+    networks: 
+      - default_network
+
+networks:
+  default_network:
+    driver: bridge

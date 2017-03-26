@@ -1,0 +1,26 @@
+### Node template
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+.vagrant
+.DS_Store
+
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+dist1
+dist
+.vscode
+
+*.pyc
+*.retry
+
+ansible/configs
